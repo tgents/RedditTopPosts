@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Posts in {{subreddits.sub_name}}</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+<div class="jumbotron">
+  <h1><a href="../">r/{{subreddits.sub_name}}</a></h1>
+</div>
+
+<table class="table">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Score</th>
+        <th>Created</th>
+        <th>Reddit Page</th>
+        <th>User</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for post in posts %}
+        <tr>
+          <td><a href={{post.url}}>{{post.title}}</a></td>
+          <td>{{post.score}}</td>
+          <td>{{post.created}}</td>
+          <td><a href={{post.comments}}>comment thread</a></td>
+          <td><a href="../user/{{post.username}}">{{post.username}}</a></td>
+        </tr>
+     {% endfor %}
+  </tbody>
+</table>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

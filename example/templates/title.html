@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example Project: List of Shakespeare's Works: {{work.longtitle}}</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+<div class="jumbotron">
+  <h1>{{work.longtitle}}</h1>
+  <p>Produced in {{work.year}} with {{work.totalwords}} total words.</p>
+{% if work.notes %}
+  <p>{{work.notes}}</p>
+ {% endif %}
+</div>
+
+<div class="panel-body">
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Characters in This Work</div>
+  <!-- List group -->
+  <ul class="list-group">
+
+{% for char in characters %}
+    <li class="list-group-item">{{char.charname}}
+	{% if char.description %}
+	<div class="well-sm">{{char.description}}</div>
+	{% endif %}
+	</li>
+{% endfor %}
+  </ul>
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
